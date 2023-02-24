@@ -24,3 +24,9 @@ class BlogForm(FlaskForm):
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Comment')
+
+class LessonForm(FlaskForm):
+    lessonname = StringField("Name", validators=[DataRequired()])
+    lessondescription = StringField("Description", validators=[DataRequired()])
+    lessonurl = StringField('URL', validators=[DataRequired()])
+    submit = SubmitField('Submit')
