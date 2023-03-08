@@ -4,7 +4,7 @@ copy this one and then edit it. -->
 {% extends "base.html" %}
 
 {% block body %}
-        <h1>New Lesson Form</h1>
+        <h1>Form Page Title</h1>
 
         <!--List all errors in a group at the top-->
         {% for field in form.errors %}
@@ -17,14 +17,24 @@ copy this one and then edit it. -->
 
         <form method=post>
             {{ form.hidden_tag() }}
-            
-            {{ form.field.label }} <br>
+        <p>    
+            {{ form.lessonname.label }} <br>
             {{ form.field(size=64) }}
             <!--List the errors for this field-->
-            {% for error in form.field.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
 
+        </p>
+        <p>
+            {{ form.lessondescription.label }} <br>
+            {{ form.field(size=64) }}
+            <!--List the errors for this field-->
+
+        </p>
+        <p>
+            {{ form.lessonurl.label }} <br>
+            {{ form.field(size=64) }}
+            <!--List the errors for this field-->
+
+        </p>
             {{form.submit()}}
         </form>
         
