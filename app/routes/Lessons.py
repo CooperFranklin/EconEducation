@@ -49,3 +49,17 @@ def lessonNew():
     # stored in the form object and are displayed on the form. take a look at blogform.html to 
     # see how that works.
     return render_template('lesson_form.html',form=form)
+
+@app.route('/lesson/<lessonID>')
+# This route will only run if the user is logged in.
+@login_required
+def blog(lessonID):
+    # retrieve the blog using the blogID
+    thisLesson = Lesson.objects.get(id=lessonID)
+    # If there are no comments the 'comments' object will have the value 'None'. Comments are 
+    # related to blogs meaning that every comment contains a reference to a blog. In this case
+    # there is a field on the comment collection called 'blog' that is a reference the Blog
+    # document it is related to.  You can use the blogID to get the blog and then you can use
+    # the blog object (thisBlog in this case) to get all the comments.
+    # Send the blog object and the comments object to the 'blog.html' template.
+    return render_template('Lesson.html',lesson=thisLesson)
