@@ -69,8 +69,8 @@ class Lesson(Document):
     lessonname = StringField()
     lessondescription = StringField()
     lessonurl = StringField()
-    createdate = DateTimeField(default=dt.datetime.utcnow)
-    modifydate = DateTimeField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
 
     meta = {
         'ordering': ['-createdate']

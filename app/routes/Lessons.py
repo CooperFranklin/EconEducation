@@ -53,7 +53,7 @@ def lessonNew():
 @app.route('/lesson/<lessonID>')
 # This route will only run if the user is logged in.
 @login_required
-def blog(lessonID):
+def lesson(lessonID):
     # retrieve the blog using the blogID
     thisLesson = Lesson.objects.get(id=lessonID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
