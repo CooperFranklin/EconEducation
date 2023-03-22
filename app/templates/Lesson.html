@@ -9,7 +9,7 @@
     {% endif %}
     <br>
     {% if lesson.author == current_user %}
-        <a data-toggle="tooltip" data-placement="top" title="Delete Blog" href="/lesson/delete/{{lesson.id}}">
+        <a data-toggle="tooltip" data-placement="top" title="Delete Lesson" href="/lesson/delete/{{lesson.id}}">
             <img width="40" class="bottom-image" src="/static/delete.png">
         </a>
         <a data-toggle="tooltip" data-placement="top" title="Edit Lesson" href="/lesson/edit/{{lesson.id}}">
