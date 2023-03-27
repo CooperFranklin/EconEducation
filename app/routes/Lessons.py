@@ -29,6 +29,7 @@ def lessonNew():
             lessonname = form.lessonname.data,
             lessondescription = form.lessondescription.data,
             lessonurl =form.lessonurl.data,
+            lessonslide1=form.lessonslide1.data,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
             modify_date = dt.datetime.utcnow
@@ -96,6 +97,7 @@ def lessonEdit(lessonID):
             lessonname = form.lessonname.data,
             lessondescription = form.lessondescription.data,
             lessonurl =form.lessonurl.data,
+            lessonslide1=form.lessonslide1.data,
             modify_date = dt.datetime.utcnow
         )
         # After updating the document, send the user to the updated blog using a redirect.
@@ -106,6 +108,7 @@ def lessonEdit(lessonID):
     form.lessonname.data = editLesson.lessonname
     form.lessondescription.data = editLesson.lessondescription
     form.lessonurl.data = editLesson.lessonurl
+    form.lessonslide1.data=editLesson.lessonslide1
 
 
     # Send the user to the blog form that is now filled out with the current information

@@ -69,6 +69,7 @@ class Lesson(Document):
     lessonname = StringField()
     lessondescription = StringField()
     lessonurl = StringField()
+    lessonslide1=StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 

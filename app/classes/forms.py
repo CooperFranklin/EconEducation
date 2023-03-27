@@ -29,4 +29,5 @@ class LessonForm(FlaskForm):
     lessonname = StringField("Lesson Name", validators=[DataRequired()])
     lessondescription = StringField("Lesson Description", validators=[DataRequired()])
     lessonurl = StringField('Lesson URL', validators=[DataRequired()])
+    lessonslide1 = URLField('Lesson Slide', validators=[DataRequired()])
     submit = SubmitField('Submit')
