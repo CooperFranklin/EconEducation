@@ -76,3 +76,40 @@ class Lesson(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+class Quiz1(Document):
+    Question1=StringField()
+    Question2=StringField()
+    Question3=StringField()
+    Question4=StringField()
+    Question5=StringField()
+    Question6=StringField()
+    Question7=StringField()
+    Question1=StringField()
+    Question2=StringField()
+    Question3=StringField()
+    Question4=StringField()
+    Question5=StringField()
+    Question6=StringField()
+    Question7=StringField()
+    Question8=StringField()
+    Question9=StringField()
+    Question10=StringField()
+    Question11=StringField()
+    Question12=StringField()
+    Question13=StringField()
+    Question14=StringField()
+    Question15=StringField()
+    Question16=StringField()
+    Question17=StringField()
+    Question18=StringField()
+    Question19=StringField()
+    Question20=StringField()
+    Question21=StringField()
+
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
