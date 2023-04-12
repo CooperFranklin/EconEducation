@@ -9,3 +9,7 @@ def index():
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
+
+@app.route('/quiz1')
+def quiz():
+    return render_template('Quiz1_form.html')
