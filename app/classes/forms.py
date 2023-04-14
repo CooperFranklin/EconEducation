@@ -53,4 +53,5 @@ class QuizForm(FlaskForm):
     Quiz18 = StringField("What Does This Picture Represent?", validators=[DataRequired()])
     Quiz19 = StringField("What Does This Picture Represent?", validators=[DataRequired()])
     Quiz20 = StringField("What Does This Picture Represent?", validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    
+    

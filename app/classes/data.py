@@ -105,6 +105,7 @@ class Quiz1(Document):
     Question18=StringField()
     Question19=StringField()
     Question20=StringField()
+    
 
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
