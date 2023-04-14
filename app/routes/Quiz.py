@@ -7,6 +7,10 @@ from app.classes.forms import QuizForm
 from flask_login import login_required
 import datetime as dt
 
+rightAnswers = {
+    "quiz1":"Market Open", "quiz2":"Market Close", "quiz3":"Market High","quiz4":"Market Low","quiz5":"Bullish","quiz6":"Bearish","quiz7":"Share","quiz8":"Trade","quiz9":"Ticker","quiz10":"Quantity","quiz11":"ETF","quiz12":"Index Fund","quiz13":"Volume","quiz14":"PE Ratio","quiz15":"IPO","quiz16":"Ask","quiz17":"Bid","quiz18":"Market Cap","quiz19":"Market Price","quiz20":"Limit Order"
+}
+
 @app.route('/quiz/quiz1', methods=['GET','POST'])
 # This means the user must be logged in to see this page
 @login_required
@@ -26,44 +30,44 @@ def quiz1():
         Answers = Quiz1(
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
-            Quiz1 = form.Quiz1.data,
-            Quiz2 = form.Quiz2.data,
-            Quiz3 = form.Quiz3.data,
-            Quiz4 = form.Quiz4.data,
-            Quiz5 = form.Quiz5.data,
-            Quiz6 = form.Quiz6.data,
-            Quiz7 = form.Quiz7.data,
-            Quiz8 = form.Quiz8.data,
-            Quiz9 = form.Quiz9.data,
-            Quiz10 = form.Quiz10.data,
-            Quiz11 = form.Quiz11.data,
-            Quiz12 = form.Quiz12.data,
-            Quiz13 = form.Quiz13.data,
-            Quiz14 = form.Quiz14.data,
-            Quiz15 = form.Quiz15.data,
-            Quiz16 = form.Quiz16.data,
-            Quiz17 = form.Quiz17.data,
-            Quiz18 = form.Quiz18.data,
-            Quiz19 = form.Quiz19.data,
-            Quiz20 = form.Quiz20.data,
+            quiz1 = (rightAnswers['quiz1'] == form.quiz1.data),
+            quiz2 = (rightAnswers['quiz2'] == form.quiz2.data),
+            quiz3 = (rightAnswers['quiz3'] == form.quiz3.data),
+            quiz4 = (rightAnswers['quiz4'] == form.quiz4.data),
+            quiz5 = (rightAnswers['quiz5'] == form.quiz5.data),
+            quiz6 = (rightAnswers['quiz6'] == form.quiz6.data),
+            quiz7 = (rightAnswers['quiz7'] == form.quiz7.data),
+            quiz8 = (rightAnswers['quiz8'] == form.quiz8.data),
+            quiz9 = (rightAnswers['quiz9'] == form.quiz9.data),
+            quiz10 = (rightAnswers['quiz10'] == form.quiz10.data),
+            quiz11 = (rightAnswers['quiz11'] == form.quiz11.data),
+            quiz12 = (rightAnswers['quiz12'] == form.quiz12.data),
+            quiz13 = (rightAnswers['quiz13'] == form.quiz13.data),
+            quiz14 = (rightAnswers['quiz14'] == form.quiz14.data),
+            quiz15 = (rightAnswers['quiz15'] == form.quiz15.data),
+            quiz16 = (rightAnswers['quiz16'] == form.quiz16.data),
+            quiz17 = (rightAnswers['quiz17'] == form.quiz17.data),
+            quiz18 = (rightAnswers['quiz18'] == form.quiz18.data),
+            quiz19 = (rightAnswers['quiz19'] == form.quiz19.data),
+            quiz20 = (rightAnswers['quiz20'] == form.quiz20.data),
             # This sets the modifydate to the current datetime.
             modify_date = dt.datetime.utcnow
         )
         # This is a method that saves the data to the mongoDB database.
         Answers.save()
-
+        print(Answers.quiz1)
         # Once the new blog is saved, this sends the user to that blog using redirect.
         # and url_for. Redirect is used to redirect a user to different route so that 
         # routes code can be run. In this case the user just created a blog so we want 
         # to send them to that blog. url_for takes as its argument the function name
         # for that route (the part after the def key word). You also need to send any
         # other values that are needed by the route you are redirecting to.
-        return redirect(url_for('quiz1',QuizID=Answers.id))
+        return render_template('results.html',form=form)
 
     # if form.validate_on_submit() is false then the user either has not yet filled out
     # the form or the form had an error and the user is sent to a blank form. Form errors are 
     # stored in the form object and are displayed on the form. take a look at blogform.html to 
     # see how that works.
-    print("YOOOOOO WHATS GOOOD")
+    
     return render_template('Quiz1_form.html',form=form)
 
