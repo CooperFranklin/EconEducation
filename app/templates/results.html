@@ -3,5 +3,10 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <p>{{Answers.quiz1}}</p>
+    <div class="container">
+
+        {% for q in QuestionsList %}
+           <h2>Question {{loop.index}}: {{q}}</h2>
+        {% endfor %}
+    </div>
 {% endblock %}
