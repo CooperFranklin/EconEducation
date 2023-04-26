@@ -18,7 +18,29 @@ rightAnswers = {
 def quiz1():
     # This gets the form object from the form.py classes that can be displayed on the template.
     form = QuizForm()
-    print("YOOOOOO WHATS GOOOD")
+    Quest1 = "False"
+    Quest2 = "False"
+    Quest3 = "False"
+    Quest4 = "False"
+    Quest5 = "False"
+    Quest6 = "False"
+    Quest7 = "False"
+    Quest8 = "False"
+    Quest9 = "False"
+    Quest10 = "False"
+    Quest11 = "False"
+    Quest12 = "False"
+    Quest13 = "False"
+    Quest14 = "False"
+    Quest15 = "False"
+    Quest16 = "False"
+    Quest17 = "False"
+    Quest18 = "False"
+    Quest19 = "False"
+    Quest20 = "False"
+    QuestionsList = [Quest1,Quest2,Quest3,Quest4,Quest5,Quest6,Quest7,Quest8,Quest9,Quest10,Quest11,Quest12,Quest13,Quest14,Quest15,Quest16,Quest17,Quest18,Quest19,Quest20]
+    
+
 
     # This is a conditional that evaluates to 'True' if the user submitted the form successfully.
     # validate_on_submit() is a method of the form object. 
@@ -56,13 +78,17 @@ def quiz1():
         # This is a method that saves the data to the mongoDB database.
         Answers.save()
         print(Answers.quiz1)
+
+        for i,answer in enumerate(Answers):
+            if answer == True:
+                QuestionsList[i] = "True"
         # Once the new blog is saved, this sends the user to that blog using redirect.
         # and url_for. Redirect is used to redirect a user to different route so that 
         # routes code can be run. In this case the user just created a blog so we want 
         # to send them to that blog. url_for takes as its argument the function name
         # for that route (the part after the def key word). You also need to send any
         # other values that are needed by the route you are redirecting to.
-        return render_template('results.html',form=form)
+        return render_template('results.html',Answers=Answers, QuestionsList=QuestionsList)
 
     # if form.validate_on_submit() is false then the user either has not yet filled out
     # the form or the form had an error and the user is sent to a blank form. Form errors are 
