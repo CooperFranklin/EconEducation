@@ -1,7 +1,10 @@
 html body {background-color: #101B0B;} 
 html p {color:  #EFFAEA;} 
+html p {text-align: center;}
 html h1 {color:  #EFFAEA;} 
-
+html h1 {text-align: center;}
+html h6 {color:  #EFFAEA;} 
+html h6 {text-align: center;}
 .navbar .navbar-dark {
     --bs-navbar-color: #101B0B;
     --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);

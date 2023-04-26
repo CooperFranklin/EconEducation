@@ -66,7 +66,7 @@ def lesson(lessonID):
     return render_template('Lesson.html',lesson=thisLesson)
 
 @app.route('/lesson/list')
-@app.route('/lesson')
+@app.route('/lessons')
 # This means the user must be logged in to see this page
 @login_required
 def lessonList():
