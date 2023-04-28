@@ -16,10 +16,12 @@ class ProfileForm(FlaskForm):
     role = SelectField('Role',choices=[("Teacher","Teacher"),("Student","Student"),("CEO","CEO"),("Gigachad","Gigacahd"),("Senior Manager","Senior Manager")])
 
 class BlogForm(FlaskForm):
-    subject = StringField('Subject', validators=[DataRequired()])
-    content = TextAreaField('Blog', validators=[DataRequired()])
-    tag = StringField('Tag', validators=[DataRequired()])
-    submit = SubmitField('Blog')
+    content = TextAreaField('Response', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class BlogForm2(FlaskForm):
+    content = TextAreaField('Response', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
@@ -28,7 +30,7 @@ class CommentForm(FlaskForm):
 class LessonForm(FlaskForm):
     lessonname = StringField("Lesson Name", validators=[DataRequired()])
     lessondescription = StringField("Lesson Description", validators=[DataRequired()])
-    lessonurl = StringField('Lesson URL', validators=[DataRequired()])
+    lessonurl = StringField('Lesson URL')
     lessonslide1 = URLField('Lesson Slide', validators=[DataRequired()])
     submit = SubmitField('Submit')
 

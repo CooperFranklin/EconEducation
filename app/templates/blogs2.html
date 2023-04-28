@@ -7,7 +7,7 @@
         <h1 class="display-1">All Responses</h1>
     </div>
     <div class="col">
-        <a href="/blog/new" class="btn btn-primary btn-sm mt-5" role="button">New Response</a>
+        <a href="/blog2/new" class="btn btn-primary btn-sm mt-5" role="button">New Response</a>
     </div>
 </div>
 
@@ -19,7 +19,7 @@
                 <h3 class="display-5">Date</h3>
                 {% endif %}
 
-                <a href="/blog/{{blog.id}}">
+                <a href="/blog2/{{blog.id}}">
                     {{moment(blog.create_date).calendar()}}
                 </a>
             </div>

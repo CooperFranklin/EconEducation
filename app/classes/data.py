@@ -39,11 +39,21 @@ class User(UserMixin, Document):
     
 class Blog(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
-    subject = StringField()
     content = StringField()
-    tag = StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
+
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Blog2(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    content = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
 
     meta = {
         'ordering': ['-createdate']
@@ -70,6 +80,7 @@ class Lesson(Document):
     lessondescription = StringField()
     lessonurl = StringField()
     lessonslide1=StringField()
+    lessonquestion=StringField()
     create_date = DateTimeField(default=dt.datetime.utcnow)
     modify_date = DateTimeField()
 

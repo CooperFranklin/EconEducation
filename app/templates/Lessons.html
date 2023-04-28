@@ -29,14 +29,18 @@
                 {% endif %}
                 {{lesson.author.fname}} {{lesson.author.lname}}
             </div>
+            {% endfor %}
             <div class="col-2">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Quiz</h3>
-                {% endif %}
-                <a href="/quiz/quiz1">Quiz 1</a>
+        
+                <h3 class="display-5">Quiz</h3>
+                
+                <a href="/quiz/quiz1">Quiz 1</a> <br><br>
+                <a href="/blogs">Quiz 2</a>
+                <a href="/blogs2/list">Quiz 3</a>
+                
             </div>
         </div>
-    {% endfor %}
+    
 {% else %}
     <h1>No Lessons</h1>
 {% endif %}
