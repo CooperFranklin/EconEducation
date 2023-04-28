@@ -3,5 +3,66 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>Home</h1>
+<style>
+  h1 {
+      border: solid;
+      border-color: green;
+      border-radius: 20px;
+  }
+  
+  </style>
+<h1>Financail Literacy</h1>
+<p>powered by<p>
+<img src="/static/StockClub.png" alt="Stock Club Logo" height="350">
+<h6>Welcome to the Stock Club virtual user interface! Stock Club is a student led financial literacy club based out of Oakland Technical High School. Stock Club provides members with hands on learning experiences geared towards captivating their audience while spreading basic financial literacy.</h6>
+
+
+<br><br>
+<style>
+    a{
+      
+      
+    }
+    a .velma{
+      position: absolute;
+      left: 20%;
+      
+      width: 25%;
+      border: none;
+      
+      margin-right: 20px;
+      background-color: #7EDA55;
+      color: #EFFAEA;
+      padding: 10px 20px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+
+    }
+
+    a .fred{
+      position: absolute;
+      left: 55%;
+      
+      width: 25%;
+      border: none;
+      
+      margin-right: 20px;
+      background-color: #7EDA55;
+      color: #EFFAEA;
+      padding: 10px 20px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+
+    }
+  </style>
+  <a href="lessons">
+    <button class="velma "><b>Lessons</b></button>
+  </a>
+  <a href="/lesson/new">
+    <button class=" fred"><b>Create Lessons</b></button>
+  </a>
+  <br>
+  <br><br><br><br><br>
 {% endblock %}
