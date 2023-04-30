@@ -4,7 +4,7 @@ copy this one and then edit it. -->
 {% extends "base.html" %}
 
 {% block body %}
-        <h1>Quiz 1</h1>
+        <h1>Quiz 3</h1> <br><br>
 
         <!--List all errors in a group at the top-->
         {% for field in form.errors %}
@@ -18,22 +18,22 @@ copy this one and then edit it. -->
         <form method=post>
             {{ form.hidden_tag() }}
         <p>    
-            <img src="/static/Screenshot 2023-04-29 160849.png">
-            {{ form.quiz1.label }} <br>
+            <img width="400" src="/static/Screenshot 2023-04-29 160849.png"><br><br>
+            {{ form.quiz1.label }} <br><br>
             {{ form.quiz1(size=64) }}
                 <!--List the errors for this field-->
     
         </p>
         <p>    
-            <img src="/static/Screenshot 2023-04-29 161002.png">
-            {{ form.quiz2.label }} <br>
+            <img width="400" src="/static/Screenshot 2023-04-29 161002.png"><br><br>
+            {{ form.quiz2.label }} <br><br>
             {{ form.quiz2(size=64) }}
                 <!--List the errors for this field-->
     
         </p>
         <p>    
-            <img src="/static/Screenshot 2023-04-29 161035.png">
-            {{ form.quiz3.label }} <br>
+            <img width="400" src="/static/Screenshot 2023-04-29 161035.png"><br><br>
+            {{ form.quiz3.label }} <br><br>
             {{ form.quiz3(size=64) }}
                 <!--List the errors for this field-->
     

@@ -3,10 +3,7 @@
 {% block body %}
 
 {% if lesson %}
-    {{moment(lesson.create_date).calendar()}} by {{lesson.author.fname}} {{lesson.author.lname}} 
-    {% if lesson.modifydate %}
-        modified {{moment(lesson.modifydate).calendar()}}
-    {% endif %}
+    
     <br>
     {% if lesson.author == current_user %}
         <a data-toggle="tooltip" data-placement="top" title="Delete Lesson" href="/lesson/delete/{{lesson.id}}">
@@ -19,9 +16,6 @@
 
     <h1 class="display-5">{{lesson.subject}}</h1>
     <p class="fs-3 text-break">
-        {% if lesson.author.image %}
-            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(lesson.author.image.read())}}">
-        {% endif %}
             {{lesson.lessonname}} <br>
             {{lesson.lessondescription}} <br>
             {{lesson.lessonurl}}<br>
