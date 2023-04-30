@@ -59,6 +59,7 @@ class Blog2(Document):
         'ordering': ['-createdate']
     }
 
+
 class Comment(Document):
     # Line 63 is a way to access all the information in Course and Teacher w/o storing it in this class
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
@@ -109,6 +110,56 @@ class Quiz1(Document):
     quiz18=BooleanField()
     quiz19=BooleanField()
     quiz20=BooleanField()
+    
+    
+
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Quiz2(Document):
+    quiz1=BooleanField()
+    quiz2=BooleanField()
+    quiz3=BooleanField()
+    
+    
+
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Quiz3(Document):
+    quiz1=BooleanField()
+    quiz2=BooleanField()
+    quiz3=BooleanField()
+    quiz4=BooleanField()
+    quiz5=BooleanField()
+    quiz6=BooleanField()
+    quiz7=BooleanField()
+    quiz8=BooleanField()
+    quiz9=BooleanField()
+    quiz10=BooleanField()
+    quiz11=BooleanField()
+    
+    
+
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }
+
+class Quiz4(Document):
+    quiz1=BooleanField()
+    quiz2=BooleanField()
+    quiz3=BooleanField()
     
     
 

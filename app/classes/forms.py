@@ -56,3 +56,29 @@ class QuizForm(FlaskForm):
     quiz19 = StringField("What Does This Picture Represent?", validators=[DataRequired()])
     quiz20 = StringField("What Does This Picture Represent?", validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class QuizForm2(FlaskForm):
+    quiz1 = StringField("Is this an Active or Passive investor?", validators=[DataRequired()])
+    quiz2 = StringField("Is this an Active or Passive investor?", validators=[DataRequired()])
+    quiz3 = StringField("Is this an Active or Passive investor?", validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class QuizForm3(FlaskForm):
+    quiz1 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz2 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz3 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz4 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz5 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz6 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz7 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz8 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz9 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz10 = StringField("What Industry is This?", validators=[DataRequired()])
+    quiz11 = StringField("What Industry is This?", validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class QuizForm4(FlaskForm):
+    quiz1 = StringField("What is the Open price?", validators=[DataRequired()])
+    quiz2 = StringField("What is the 52 week high?", validators=[DataRequired()])
+    quiz3 = StringField("What is the P/E ratio?", validators=[DataRequired()])
+    submit = SubmitField('Submit')

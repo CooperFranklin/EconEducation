@@ -70,6 +70,8 @@ def lesson(lessonID):
 # This means the user must be logged in to see this page
 @login_required
 def lessonList():
+
+    
     # This retrieves all of the 'blogs' that are stored in MongoDB and places them in a
     # mongoengine object as a list of dictionaries name 'blogs'.
     lessons = Lesson.objects()

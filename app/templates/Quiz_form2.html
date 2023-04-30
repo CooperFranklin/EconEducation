@@ -1,0 +1,48 @@
+<!-- this is a generic form page.  Best way to make a new form page is to 
+copy this one and then edit it. -->
+
+{% extends "base.html" %}
+
+{% block body %}
+        <h1>Quiz 1</h1>
+
+        <!--List all errors in a group at the top-->
+        {% for field in form.errors %}
+            {% for error in form.errors[field] %}
+                <div class="alert alert-error">
+                    <strong>Error!</strong>{{field}}: {{error}}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <form method=post>
+            {{ form.hidden_tag() }}
+        <p>    
+            <img src="/static/Screenshot 2023-04-29 160849.png">
+            {{ form.quiz1.label }} <br>
+            {{ form.quiz1(size=64) }}
+                <!--List the errors for this field-->
+    
+        </p>
+        <p>    
+            <img src="/static/Screenshot 2023-04-29 161002.png">
+            {{ form.quiz2.label }} <br>
+            {{ form.quiz2(size=64) }}
+                <!--List the errors for this field-->
+    
+        </p>
+        <p>    
+            <img src="/static/Screenshot 2023-04-29 161035.png">
+            {{ form.quiz3.label }} <br>
+            {{ form.quiz3(size=64) }}
+                <!--List the errors for this field-->
+    
+        </p>
+        
+
+            <!--List the errors for this field-->
+
+            {{form.submit()}}
+        </form>
+        
+{% endblock %}

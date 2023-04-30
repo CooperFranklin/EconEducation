@@ -16,7 +16,8 @@ import datetime as dt
 @app.route('/blogs2')
 # This means the user must be logged in to see this page
 @login_required
-def blogList():
+def blogList2():
+    print("HEHEHEHEH")
     # This retrieves all of the 'blogs' that are stored in MongoDB and places them in a
     # mongoengine object as a list of dictionaries name 'blogs'.
     blogs = Blog2.objects()
@@ -33,7 +34,7 @@ def blogList():
 @app.route('/blog2/<blogID>')
 # This route will only run if the user is logged in.
 @login_required
-def blog(blogID):
+def blog2(blogID):
     # retrieve the blog using the blogID
     thisBlog = Blog2.objects.get(id=blogID)
     # If there are no comments the 'comments' object will have the value 'None'. Comments are 
@@ -52,7 +53,7 @@ def blog(blogID):
 @app.route('/blog2/delete/<blogID>')
 # Only run this route if the user is logged in.
 @login_required
-def blogDelete(blogID):
+def blogDelete2(blogID):
     # retrieve the blog to be deleted using the blogID
     deleteBlog = Blog2.objects.get(id=blogID)
     # check to see if the user that is making this request is the author of the blog.
@@ -81,7 +82,7 @@ def blogDelete(blogID):
 # This means the user must be logged in to see this page
 @login_required
 # This is a function that is run when the user requests this route.
-def blogNew():
+def blogNew2():
     # This gets the form object from the form.py classes that can be displayed on the template.
     form = BlogForm2()
 
@@ -111,7 +112,7 @@ def blogNew():
         # to send them to that blog. url_for takes as its argument the function name
         # for that route (the part after the def key word). You also need to send any
         # other values that are needed by the route you are redirecting to.
-        return redirect(url_for('blog',blogID=newBlog2.id))
+        return redirect(url_for('blog2',blogID=newBlog2.id))
 
     # if form.validate_on_submit() is false then the user either has not yet filled out
     # the form or the form had an error and the user is sent to a blank form. Form errors are 
@@ -126,7 +127,7 @@ def blogNew():
 # before this one. 
 @app.route('/blog2/edit/<blogID>', methods=['GET', 'POST'])
 @login_required
-def blogEdit(blogID):
+def blogEdit2(blogID):
     editBlog = Blog2.objects.get(id=blogID)
     # if the user that requested to edit this blog is not the author then deny them and
     # send them back to the blog. If True, this will exit the route completely and none
@@ -146,7 +147,7 @@ def blogEdit(blogID):
             modify_date = dt.datetime.utcnow
         )
         # After updating the document, send the user to the updated blog using a redirect.
-        return redirect(url_for('blog',blogID=blogID))
+        return redirect(url_for('blog2',blogID=blogID))
 
     # if the form has NOT been submitted then take the data from the editBlog object
     # and place it in the form object so it will be displayed to the user on the template.
@@ -169,8 +170,8 @@ def blogEdit(blogID):
 
 @app.route('/comment/new/<blogID>', methods=['GET', 'POST'])
 @login_required
-def commentNew(blogID):
-    blog = Blog.objects.get(id=blogID)
+def commentNew2(blogID):
+    blog = Blog2.objects.get(id=blogID)
     form = CommentForm()
     if form.validate_on_submit():
         newComment = Comment(
@@ -179,24 +180,24 @@ def commentNew(blogID):
             content = form.content.data
         )
         newComment.save()
-        return redirect(url_for('blog',blogID=blogID))
+        return redirect(url_for('blog2',blogID=blogID))
     return render_template('commentform.html',form=form,blog=blog)
 
 @app.route('/comment/edit/<commentID>', methods=['GET', 'POST'])
 @login_required
-def commentEdit(commentID):
+def commentEdit2(commentID):
     editComment = Comment.objects.get(id=commentID)
     if current_user != editComment.author:
         flash("You can't edit a comment you didn't write.")
-        return redirect(url_for('blog',blogID=editComment.blog.id))
-    blog = Bog.objects.get(id=editComment.blog.id)
+        return redirect(url_for('blog2',blogID=editComment.blog.id))
+    blog = Blog2.objects.get(id=editComment.blog.id)
     form = CommentForm()
     if form.validate_on_submit():
         editComment.update(
             content = form.content.data,
             modifydate = dt.datetime.utcnow
         )
-        return redirect(url_for('blog',blogID=editComment.blog.id))
+        return redirect(url_for('blog2',blogID=editComment.blog.id))
 
     form.content.data = editComment.content
 
@@ -204,8 +205,8 @@ def commentEdit(commentID):
 
 @app.route('/comment/delete/<commentID>')
 @login_required
-def commentDelete(commentID): 
+def commentDelete2(commentID): 
     deleteComment = Comment.objects.get(id=commentID)
     deleteComment.delete()
     flash('The comments was deleted.')
-    return redirect(url_for('blog',blogID=deleteComment.blog.id)) 
+    return redirect(url_for('blog2',blogID=deleteComment.blog.id)) 
